@@ -1,20 +1,29 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 20px;
-    background-color: #f0f0f0;
-    text-align: center;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #343a40;
 }
 
-h1 {
-    color: #333;
-    margin-bottom: 20px;
+h1, h2 {
+    text-align: center;
+    margin-top: 20px;
+    color: #007bff;
+}
+
+#stocks-section, #news-section {
+    background-color: #ffffff;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 800px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 a {
-    color: #007BFF;
+    color: #007bff;
     text-decoration: none;
-    margin: 10px;
 }
 
 a:hover {
@@ -22,27 +31,32 @@ a:hover {
 }
 
 form {
-    margin-top: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 form div {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 input[type="text"], input[type="password"] {
+    width: 100%;
     padding: 10px;
-    width: 200px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #ced4da;
     border-radius: 5px;
 }
 
 button {
-    padding: 10px 20px;
+    width: 100%;
+    padding: 10px;
     border: none;
     border-radius: 5px;
-    background-color: #007BFF;
-    color: white;
+    background-color: #007bff;
+    color: #ffffff;
     cursor: pointer;
 }
 
