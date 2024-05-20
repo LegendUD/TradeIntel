@@ -8,13 +8,13 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch(url)
         .then(response => {
             if (!response.ok) {
-                throw new Error('Network response was not ok');
+                throw new Error(`Network response was not ok: ${response.statusText}`);
             }
             return response.json();
         })
         .then(data => {
-            if (data['Error Message']) {
-                throw new Error(data['Error Message']);
+            if (!data['Time Series (Daily)']) {
+                throw new Error(`Alpha Vantage API error: ${data['Error Message'] || 'Unknown error'}`);
             }
             const timeSeries = data['Time Series (Daily)'];
             const latestDate = Object.keys(timeSeries)[0];
