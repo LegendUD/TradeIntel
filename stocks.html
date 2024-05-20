@@ -1,29 +1,41 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const stocksData = document.getElementById('stocks-data');
-    const apiKey = 'FO3BBNU9TXDHD4TO';
-    const symbol = 'AAPL';
-
-    const url = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${symbol}&apikey=${apiKey}`;
-
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            const timeSeries = data['Time Series (Daily)'];
-            const latestDate = Object.keys(timeSeries)[0];
-            const latestData = timeSeries[latestDate];
-
-            stocksData.innerHTML = `
-                <p>Symbol: ${symbol}</p>
-                <p>Date: ${latestDate}</p>
-                <p>Open: $${latestData['1. open']}</p>
-                <p>High: $${latestData['2. high']}</p>
-                <p>Low: $${latestData['3. low']}</p>
-                <p>Close: $${latestData['4. close']}</p>
-                <p>Volume: ${latestData['6. volume']}</p>
-            `;
-        })
-        .catch(error => {
-            console.error('Error fetching stock data:', error);
-            stocksData.innerHTML = 'Error loading stock prices.';
-        });
-});
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Prices - Trade Intel</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="images/logo.png" alt="Trade Intel Logo" class="logo">
+            <h1>Stock Prices</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#stocks-section">Stock Prices</a></li>
+                    <li><a href="news.html">Latest News</a></li>
+                    <li><a href="crypto.html">Crypto Prices</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <section id="stocks-section">
+                <h2><i class="fas fa-chart-line"></i> Stock Prices</h2>
+                <div id="stocks-data" class="content-box">Loading stock prices...</div>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Trade Intel. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="js/stocks.js"></script>
+</body>
+</html>
