@@ -1,12 +1,29 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Stocks - Boiling Beyond 63662</title>
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-    <h1>Stock Prices</h1>
-    <div id="stocks-data">Loading stock prices...</div>
-    <script src="js/stocks.js"></script>
-</body>
-</html>
+document.addEventListener('DOMContentLoaded', () => {
+    const stocksData = document.getElementById('stocks-data');
+    const apiKey = 'FO3BBNU9TXDHD4TO';
+    const symbol = 'AAPL';
+
+    const url = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${symbol}&apikey=${apiKey}`;
+
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            const timeSeries = data['Time Series (Daily)'];
+            const latestDate = Object.keys(timeSeries)[0];
+            const latestData = timeSeries[latestDate];
+
+            stocksData.innerHTML = `
+                <p>Symbol: ${symbol}</p>
+                <p>Date: ${latestDate}</p>
+                <p>Open: $${latestData['1. open']}</p>
+                <p>High: $${latestData['2. high']}</p>
+                <p>Low: $${latestData['3. low']}</p>
+                <p>Close: $${latestData['4. close']}</p>
+                <p>Volume: ${latestData['6. volume']}</p>
+            `;
+        })
+        .catch(error => {
+            console.error('Error fetching stock data:', error);
+            stocksData.innerHTML = 'Error loading stock prices.';
+        });
+});
