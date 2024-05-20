@@ -6,8 +6,14 @@
 </head>
 <body>
     <h1>Welcome to Boiling Beyond 63662</h1>
-    <p><a href="stocks.html">Check Stock Prices</a></p>
-    <p><a href="news.html">Read News</a></p>
+    <div id="stocks-section">
+        <h2>Stock Prices</h2>
+        <div id="stocks-data">Loading stock prices...</div>
+    </div>
+    <div id="news-section">
+        <h2>Latest News</h2>
+        <div id="news-data">Loading news...</div>
+    </div>
     <form action="/login" method="POST">
         <div>
             <label for="username">Username:</label>
@@ -19,6 +25,7 @@
         </div>
         <button type="submit">Login</button>
     </form>
-    <script src="js/scripts.js"></script>
+    <script src="js/stocks.js"></script>
+    <script src="js/news.js"></script>
 </body>
 </html>
