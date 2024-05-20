@@ -1,30 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boiling Beyond 63662</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
-    <h1>Welcome to Boiling Beyond 63662</h1>
-    <div id="stocks-section">
-        <h2>Stock Prices</h2>
-        <div id="stocks-data">Loading stock prices...</div>
-    </div>
-    <div id="news-section">
-        <h2>Latest News</h2>
-        <div id="news-data">Loading news...</div>
-    </div>
-    <form action="/login" method="POST">
-        <div>
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username">
-        </div>
-        <div>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password">
-        </div>
-        <button type="submit">Login</button>
-    </form>
+    <header>
+        <h1>Boiling Beyond 63662</h1>
+        <nav>
+            <ul>
+                <li><a href="#stocks-section">Stock Prices</a></li>
+                <li><a href="#news-section">Latest News</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="stocks-section">
+            <h2><i class="fas fa-chart-line"></i> Stock Prices</h2>
+            <div id="stocks-data">Loading stock prices...</div>
+        </section>
+        <section id="news-section">
+            <h2><i class="fas fa-newspaper"></i> Latest News</h2>
+            <div id="news-data">Loading news...</div>
+        </section>
+        <section id="login-section">
+            <h2>Login</h2>
+            <form action="/login" method="POST">
+                <div>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username">
+                </div>
+                <div>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password">
+                </div>
+                <button type="submit">Login</button>
+            </form>
+        </section>
+    </main>
     <script src="js/stocks.js"></script>
     <script src="js/news.js"></script>
 </body>
