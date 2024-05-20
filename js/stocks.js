@@ -32,6 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .catch(error => {
             console.error('Error fetching stock data:', error);
-            stocksData.innerHTML = 'Error loading stock prices.';
+            stocksData.innerHTML = `Error loading stock prices: ${error.message}`;
         });
 });
